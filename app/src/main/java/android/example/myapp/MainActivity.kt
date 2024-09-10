@@ -41,16 +41,24 @@ class MainActivity : ComponentActivity() {
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
-                    
-
-
-
-                        DisplayText()
-
-
-                    
+//                        DisplayText()
+                    var list = listOf("Ayo", "Ade", "Ben", "CCO", "Tolu", "Joshua")
+                    HelloUser(list)
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun HelloUser(names: List<String>){
+
+    Column {
+        for(name in names){
+            Text(
+                text = "Hello $name",
+                color = Color.Blue
+            )
         }
     }
 }
@@ -68,13 +76,9 @@ fun DisplayText(){
                 fontWeight = FontWeight.ExtraBold,
                 lineHeight = 40.sp,
                 letterSpacing = 5.sp,
-                //scale-independent pixels.... density-independent pixels
-
                 fontFamily = FontFamily.Cursive,
 //                maxLines = 5,
 //                overflow = TextOverflow.Ellipsis
-
-
                 //Create a greeting app that says hello to all users in a string list...
             )
         )
@@ -94,7 +98,10 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 fun GreetingPreview() {
     MyAppTheme {
 //        Greeting("Android")
-        DisplayText()
+//        DisplayText()
+
+        var list = listOf("Ayo", "Ade", "Ben", "CCO", "Tolu", "Joshua")
+        HelloUser(list)
     }
 }
 
