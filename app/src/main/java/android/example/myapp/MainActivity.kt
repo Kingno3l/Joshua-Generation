@@ -15,10 +15,16 @@ import android.example.myapp.ui.theme.MyAppTheme
 import android.graphics.fonts.FontStyle
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -43,8 +49,7 @@ class MainActivity : ComponentActivity() {
             MyAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+
                     )
                 }
             }
@@ -55,25 +60,26 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    val reuseableModifier = Modifier
-        .fillMaxSize()
-        .background(Color.Red)
-        .padding(12.dp)
-    val onClick = {}
-    Column(
-        modifier = reuseableModifier
-        ){
+fun Greeting() {
 
-        Text(
-//            text = "Hello $name!",
-            modifier = Modifier.verticalScroll(state = rememberScrollState()),
-            text = stringResource(id = R.string.long_text_src),
-            fontSize = 32.sp,
-//            modifier = reuseableModifier
-        )
+//    Column(verticalArrangement = Arrangement.Center){
+//        Text(text = "Joshua")
+//        Text(text = "Generation")
+//    }
+//
+//    Row(horizontalArrangement = Arrangement.Center){
+//        Text(text = "Joshua")
+//        Text(text = "Generation")
+//    }
 
+    Box(modifier = Modifier.fillMaxSize()){
+        Text(text = "Joshua Ge Ge something is placed ontop of me")
+
+        Box(modifier = Modifier.align(Alignment.TopStart).fillMaxHeight().width(80.dp).background(Color.Cyan))
+
+        Text(text = "Generation, I am on top of others", modifier = Modifier.align(Alignment.CenterStart))
     }
+
 
 }
 
@@ -81,7 +87,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     MyAppTheme {
-        Greeting("Android")
+        Greeting()
     }
 }
 
