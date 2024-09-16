@@ -2,4 +2,7 @@
     <string name="app_name">My App</string>
 
     <string name="text_src">Welcome to The Joshua Generation Android Class</string>
+
+    <string name="long_text_src">Welcome to The Joshua Generation Android Class this is a long text to show us how to use a scrollable in jetpack compose using modifiers. Welcome to The Joshua Generation Android Class this is a long text to show us how to use a scrollable in jetpack compose using modifiers. Welcome to The Joshua Generation Android Class this is a long text to show us how to use a scrollable in jetpack compose using modifiers. Welcome to The Joshua Generation Android Class this is a long text to show us how to use a scrollable in jetpack compose using modifiers. Welcome to The Joshua Generation Android Class this is a long text to show us how to use a scrollable in jetpack compose using modifiers. Welcome to The Joshua Generation Android Class this is a long text to show us how to use a scrollable in jetpack compose using modifiers. Welcome to The Joshua Generation Android Class this is a long text to show us how to use a scrollable in jetpack compose using modifiers. Welcome to The Joshua Generation Android Class this is a long text to show us how to use a scrollable in jetpack compose using modifiers. Welcome to The Joshua Generation Android Class this is a long text to show us how to use a scrollable in jetpack compose using modifiers.</string>
+
 </resources>

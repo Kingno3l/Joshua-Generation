@@ -13,8 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import android.example.myapp.ui.theme.MyAppTheme
 import android.graphics.fonts.FontStyle
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -22,6 +26,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 
@@ -41,67 +46,42 @@ class MainActivity : ComponentActivity() {
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
-//                        DisplayText()
-                    var list = listOf("Ayo", "Ade", "Ben", "CCO", "Tolu", "Joshua")
-                    HelloUser(list)
                 }
             }
         }
     }
 }
 
-@Composable
-fun HelloUser(names: List<String>){
 
-    Column {
-        for(name in names){
-            Text(
-                text = "Hello $name",
-                color = Color.Blue
-            )
-        }
-    }
-}
-
-@Composable
-fun DisplayText(){
-    SelectionContainer {
-        Text(
-            text = "Welcome to The Joshua Generation Android Class",
-            color = Color.Blue,
-            fontSize = 48.sp,
-            style = TextStyle(
-                textDecoration = TextDecoration.LineThrough,
-                fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
-                fontWeight = FontWeight.ExtraBold,
-                lineHeight = 40.sp,
-                letterSpacing = 5.sp,
-                fontFamily = FontFamily.Cursive,
-//                maxLines = 5,
-//                overflow = TextOverflow.Ellipsis
-                //Create a greeting app that says hello to all users in a string list...
-            )
-        )
-    }
-}
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+    val reuseableModifier = Modifier
+        .fillMaxSize()
+        .background(Color.Red)
+        .padding(12.dp)
+    val onClick = {}
+    Column(
+        modifier = reuseableModifier
+        ){
+
+        Text(
+//            text = "Hello $name!",
+            modifier = Modifier.verticalScroll(state = rememberScrollState()),
+            text = stringResource(id = R.string.long_text_src),
+            fontSize = 32.sp,
+//            modifier = reuseableModifier
+        )
+
+    }
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     MyAppTheme {
-//        Greeting("Android")
-//        DisplayText()
-
-        var list = listOf("Ayo", "Ade", "Ben", "CCO", "Tolu", "Joshua")
-        HelloUser(list)
+        Greeting("Android")
     }
 }
 
