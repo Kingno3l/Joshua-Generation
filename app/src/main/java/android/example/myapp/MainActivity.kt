@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import android.example.myapp.ui.theme.MyAppTheme
 import android.graphics.fonts.FontStyle
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -22,10 +23,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -61,13 +65,21 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting() {
- //Row: alignment parameters -  Alignment.Top CenterVertically Alignment.Bottom
+    val context = LocalContext.current.applicationContext
 
-    //Column: Alignment.Start CenterHorizontally, Alignment.End
+    Column(){
+        Button(onClick = {
+            Toast.makeText(context,
+                "Hello Josuha Generation",
+                Toast.LENGTH_SHORT
+            ).show()
+        },
+            shape = RoundedCornerShape(size = 50.dp)
 
-    //Row: Arrangement.Start Arrangement.Center Arrangement.End
-
-    //Column Arrangement.Top Arrangement.Center Arrangement.Bottom
+        ) {
+            Text(text = "Tap Once")
+        }
+    }
 
 }
 
