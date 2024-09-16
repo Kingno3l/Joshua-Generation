@@ -61,25 +61,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting() {
+ //Row: alignment parameters -  Alignment.Top CenterVertically Alignment.Bottom
 
-//    Column(verticalArrangement = Arrangement.Center){
-//        Text(text = "Joshua")
-//        Text(text = "Generation")
-//    }
-//
-//    Row(horizontalArrangement = Arrangement.Center){
-//        Text(text = "Joshua")
-//        Text(text = "Generation")
-//    }
+    //Column: Alignment.Start CenterHorizontally, Alignment.End
 
-    Box(modifier = Modifier.fillMaxSize()){
-        Text(text = "Joshua Ge Ge something is placed ontop of me")
+    //Row: Arrangement.Start Arrangement.Center Arrangement.End
 
-        Box(modifier = Modifier.align(Alignment.TopStart).fillMaxHeight().width(80.dp).background(Color.Cyan))
-
-        Text(text = "Generation, I am on top of others", modifier = Modifier.align(Alignment.CenterStart))
-    }
-
+    //Column Arrangement.Top Arrangement.Center Arrangement.Bottom
 
 }
 
