@@ -14,24 +14,35 @@ import androidx.compose.ui.tooling.preview.Preview
 import android.example.myapp.ui.theme.MyAppTheme
 import android.graphics.fonts.FontStyle
 import android.widget.Toast
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.draw.BlurredEdgeTreatment
+import androidx.compose.ui.draw.blur
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -67,31 +78,27 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting() {
-    val context = LocalContext.current.applicationContext
 
-    Column(){
-        Button(onClick = {
-            Toast.makeText(context,
-                "Hello Josuha Generation",
-                Toast.LENGTH_SHORT
-            ).show()
-        },
-            shape = RoundedCornerShape(size = 50.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Blue
-            ),
-            elevation =  ButtonDefaults.buttonElevation(
-                defaultElevation = 20.dp
-            ),
-            modifier = Modifier
-                .width(width = 300.dp)
-                .height(height = 70.dp)
-
-        ) {
-            Text(text = "Tap Once")
-        }
-    }
-
+    Image(
+        painter = painterResource(id = R.drawable.joshuagen),
+        contentDescription = "Joshua Generation Logo",
+        modifier = Modifier
+            .size(160.dp)
+            .scale(0.6f)
+            .aspectRatio(16f/9f)
+            .blur(
+                radiusX = 10.dp,
+                radiusY = 10.dp,
+                edgeTreatment = BlurredEdgeTreatment(shape = RoundedCornerShape(percent = 5))
+            )
+            .clip(CircleShape)
+            .border(
+                width = 2.dp,
+                color = Color.Blue,
+                shape = CircleShape
+                ),
+        contentScale = ContentScale.Crop
+    )
 }
 
 @Preview(showBackground = true)
