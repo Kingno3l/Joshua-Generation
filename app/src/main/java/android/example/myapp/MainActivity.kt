@@ -13,6 +13,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import android.example.myapp.ui.theme.MyAppTheme
 import android.graphics.fonts.FontStyle
+import android.util.Log
+
+
+
+import androidx.compose.runtime.*
+
+
+
+
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -34,6 +43,9 @@ import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.BlurredEdgeTreatment
 import androidx.compose.ui.draw.blur
@@ -51,11 +63,6 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
-
-
-
-
 
 
 class MainActivity : ComponentActivity() {
@@ -79,26 +86,22 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting() {
 
-    Image(
-        painter = painterResource(id = R.drawable.joshuagen),
-        contentDescription = "Joshua Generation Logo",
-        modifier = Modifier
-            .size(160.dp)
-            .scale(0.6f)
-            .aspectRatio(16f/9f)
-            .blur(
-                radiusX = 10.dp,
-                radiusY = 10.dp,
-                edgeTreatment = BlurredEdgeTreatment(shape = RoundedCornerShape(percent = 5))
-            )
-            .clip(CircleShape)
-            .border(
-                width = 2.dp,
-                color = Color.Blue,
-                shape = CircleShape
-                ),
-        contentScale = ContentScale.Crop
-    )
+//    var count = 0
+    var count by remember {
+     mutableStateOf(0)
+    }
+
+    Column() {
+        Button(
+            onClick = {
+            count++
+                Log.v("TAGY", "counter " +count)
+            },
+        ) {
+            Text(text = "Click me to change state $count")
+        }
+    }
+    
 }
 
 @Preview(showBackground = true)
