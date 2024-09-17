@@ -21,12 +21,14 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -74,7 +76,16 @@ fun Greeting() {
                 Toast.LENGTH_SHORT
             ).show()
         },
-            shape = RoundedCornerShape(size = 50.dp)
+            shape = RoundedCornerShape(size = 50.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Blue
+            ),
+            elevation =  ButtonDefaults.buttonElevation(
+                defaultElevation = 20.dp
+            ),
+            modifier = Modifier
+                .width(width = 300.dp)
+                .height(height = 70.dp)
 
         ) {
             Text(text = "Tap Once")
